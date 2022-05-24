@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import StackNav from './routes/HomeStackNav'
 import {
@@ -28,7 +28,6 @@ export default function App() {
   else{
     return (
       <StackNav/>
-
     );
   }
 
