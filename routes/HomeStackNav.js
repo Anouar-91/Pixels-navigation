@@ -1,16 +1,26 @@
 import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react';
+
 import Home from "../screens/Home"
 import Photo from "../screens/Photo"
 import Portfolio from "../screens/Portfolio"
 import Four from "../screens/Four"
 import { createAppContainer } from 'react-navigation';
 import Colors from '../styles/Colors';
+import {Button} from 'react-native';
 
 const screens = {
     Home: {
         screen: Home,
         navigationOptions: {
             title: 'Accueil',
+            headerRight: () => (
+                <Button 
+                onPress={() => alert('Dans Route')}
+                title="Info"
+                color="white"
+                />
+            )
 /*             headerStyle: {
                 backgroundColor: Colors.lightBrown
             } */
@@ -38,6 +48,13 @@ const defaultNavigationOptions = {
         headerStyle: {
             backgroundColor: Colors.lightBrown
         },
+        headerRight: () => (
+            <Button 
+            onPress={() => alert('Dans Route')}
+            title="Info"
+            color="white"
+            />
+        ),
         headerTintColor: Colors.white,
         headerTitleStyle: {
             fontSize: 30

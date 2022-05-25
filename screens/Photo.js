@@ -5,7 +5,7 @@ const Photo = (props) => {
   console.log(props)
   const handlePress = () => {
     //allow to return at the last screen
-    props.navigation.goBack()
+    props.navigation.popToTop()
   }
   return (
     <View style={styles.container}>

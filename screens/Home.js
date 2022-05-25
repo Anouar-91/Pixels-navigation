@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Pressable, FlatList, Image } from 'react-native
 import React from 'react'
 import { globalStyles } from '../styles/AppStyles'
 import Colors from '../styles/Colors'
+import PressableItem from '../components/PressableItem'
 const Home = ({ navigation }) => {
   const DATA = [
     {
@@ -11,6 +12,7 @@ const Home = ({ navigation }) => {
       country: 'Allemagne',
       totalImg: 3,
       img: 'https://cdn.pixabay.com/photo/2017/12/17/08/44/girl-3023853_960_720.jpg',
+      favColor: 'blueviolet'
     },
     {
       id: '2',
@@ -19,6 +21,8 @@ const Home = ({ navigation }) => {
       country: 'France',
       totalImg: 5,
       img: 'https://cdn.pixabay.com/photo/2018/04/27/03/50/portrait-3353699_960_720.jpg',
+      favColor: 'olive'
+
     },
     {
       id: '3',
@@ -27,6 +31,8 @@ const Home = ({ navigation }) => {
       country: 'Espagne',
       totalImg: 4,
       img: 'https://cdn.pixabay.com/photo/2019/08/13/05/39/girl-4402542_960_720.jpg',
+      favColor: 'orangered'
+
     },
     {
       id: '4',
@@ -35,6 +41,8 @@ const Home = ({ navigation }) => {
       country: 'Italie',
       totalImg: 5,
       img: 'https://cdn.pixabay.com/photo/2017/03/24/18/59/face-2171923_960_720.jpg',
+      favColor: 'blue'
+
     },
   ];
 
@@ -47,28 +55,10 @@ const Home = ({ navigation }) => {
   }
 
   const renderProfiles = ({ item }) => {
-    return (
-      <Pressable
-      onPress={() => navigation.navigate('Portfolio', item)} 
-      style={({pressed}) => [
-        {
-          backgroundColor: pressed ? Colors.clicked : Colors.white
-        },
-        globalStyles.profileItem
-      ]}
-      
-      >
-        <Text style={globalStyles.titleText}>{item.name}</Text>
-        <Image source={{ uri: item.img }}
-          style={globalStyles.profileImg}
-        />
-        <View style={globalStyles.infoContainer}>
-            <Text style={globalStyles.infos}>{item.country}</Text>
-            <Text style={globalStyles.infos}>{item.totalImg}</Text>
-        </View>
-      </Pressable>
-
-    )
+    return <PressableItem 
+    handleNavigate= {() => navigation.navigate('Portfolio', item)}
+    item={item}
+    />
   }
   return (
     <View style={globalStyles.container}>
